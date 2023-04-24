@@ -134,7 +134,7 @@ services:
       - "9117:9117/tcp"
     restart: "always"
     volumes:
-      - "1ab34148e2acc6e73ac430ccb0fd49b6ba4e2b67c95794e502b528a52a47746d:/config"
+      - "jackett:/config"
       - "/downloads:/downloads"
     working_dir: "/"
   Medusa:
@@ -213,10 +213,10 @@ services:
       - "8081:8081/tcp"
     restart: "always"
     volumes:
-      - "a488827212f5b7bca4072b347d6ba8215da0f071e8962720c8d57feb01a2dbe1:/config"
+      - "medusa-config:/config"
       - "/downloads:/downloads"
       - "/mnt/plex:/mnt/plex"
-      - "61b85217c775bef629d00b0ec4f7c230ae0d4b26e4fd33f77ff3a44f03e30299:/tv"
+      - "medusa-data:/tv"
     working_dir: "/"
   NZBGet:
     cap_drop:
@@ -288,7 +288,7 @@ services:
       - "6789:6789/tcp"
     restart: "always"
     volumes:
-      - "3eccbb86d80ef478c7b360fbedc21aa0fc6f152e323529de9e43d812e0760f6b:/config"
+      - "nzbget:/config"
       - "/downloads:/downloads"
     working_dir: "/"
   Radarr:
@@ -368,7 +368,7 @@ services:
       - "7878:7878/tcp"
     restart: "always"
     volumes:
-      - "4da53860f037e17619664698d8771eed10e6708433323e6fd0f237d5b109789b:/config"
+      - "radarr:/config"
       - "/downloads:/downloads"
       - "/mnt/plex:/mnt/plex"
     working_dir: "/"
@@ -445,8 +445,8 @@ services:
       - "9091:9091/tcp"
     restart: "always"
     volumes:
-      - "cfcb168105b49911e7d6788028d27c27072aca4a28de68c69e0352a01dbf1513:/watch"
-      - "5b339e98bf9e4f373e7446567e55c5bf45f4914834af180e82010e6613e0729a:/config"
+      - "transmission-watch:/watch"
+      - "transmission-config:/config"
       - "/downloads:/downloads"
     working_dir: "/"
   homepage:
@@ -585,7 +585,7 @@ services:
       - "9443:9443/tcp"
     restart: "always"
     volumes:
-      - "portainder_data:/data"
+      - "portainer_data:/data"
       - "/var/run/docker.sock:/var/run/docker.sock"
     working_dir: "/"
 networks:
@@ -593,19 +593,19 @@ networks:
     external: true
     name: "homepage_default"
 volumes:
-  1ab34148e2acc6e73ac430ccb0fd49b6ba4e2b67c95794e502b528a52a47746d:
+  portainer_data:
     external: true
-  3eccbb86d80ef478c7b360fbedc21aa0fc6f152e323529de9e43d812e0760f6b:
+  radarr:
     external: true
-  4da53860f037e17619664698d8771eed10e6708433323e6fd0f237d5b109789b:
+  medusa-config:
     external: true
-  5b339e98bf9e4f373e7446567e55c5bf45f4914834af180e82010e6613e0729a:
+  medusa-data:
     external: true
-  61b85217c775bef629d00b0ec4f7c230ae0d4b26e4fd33f77ff3a44f03e30299:
+  transmission-config:
     external: true
-  a488827212f5b7bca4072b347d6ba8215da0f071e8962720c8d57feb01a2dbe1:
+  transmission-watch:
     external: true
-  cfcb168105b49911e7d6788028d27c27072aca4a28de68c69e0352a01dbf1513:
+  nzbget:
     external: true
-  portainder_data:
+  jackett:
     external: true
