@@ -604,22 +604,13 @@ services:
     working_dir: "/app"
 networks:
   seedbox_default:
-    external: true
     name: "seedbox_default"
 volumes:
   portainer_data:
-    external: true
   radarr:
-    external: true
   medusa-config:
-    external: true
   medusa-data:
-    external: true
   transmission-config:
-    external: true
   transmission-watch:
-    external: true
   nzbget:
-    external: true
   jackett:
-    external: true
