@@ -6,14 +6,14 @@
   - `/downloads` and `/opt/homepage` are writable folders
 
 ## Containers used by Seedbox ##
-  - Portainer
-  - Homepage
-  - Medusa
-  - Radarr
-  - Flood
-  - Transmission
-  - Jackett
-  - NZBGet
+  - Portainer (port 9443)
+  - Homepage (port 4321)
+  - Medusa (port 8081)
+  - Radarr (port 7878)
+  - Flood (port 3000)
+  - Transmission (port 9091)
+  - Jackett (port 9117)
+  - NZBGet (port 6789)
 
 ## Initial Setup ##
 Initial docker-compose file was generated with [docker-autocompose](https://github.com/Red5d/docker-autocompose), using the following command:
