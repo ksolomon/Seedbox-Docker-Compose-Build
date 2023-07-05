@@ -10,45 +10,6 @@ services:
     image: "cr.portainer.io/portainer/portainer-ce:latest"
     ipc: "private"
     labels:
-      com.docker.desktop.extension.api.version: ">= 0.2.2"
-      com.docker.desktop.extension.icon: "https://portainer-io-assets.sfo2.cdn.digitaloceanspaces.com/logos/portainer.png"
-      com.docker.extension.additional-urls: "[{\"title\":\"Website\",\"url\":\"https://www.portainer.io?utm_campaign=DockerCon&utm_source=DockerDesktop\"\
-        },{\"title\":\"Documentation\",\"url\":\"https://docs.portainer.io\"},{\"\
-        title\":\"Support\",\"url\":\"https://join.slack.com/t/portainer/shared_invite/zt-txh3ljab-52QHTyjCqbe5RibC2lcjKA\"\
-        }]"
-      com.docker.extension.detailed-description: "<p data-renderer-start-pos=\"226\"\
-        >Portainer&rsquo;s Docker Desktop extension gives you access to all of Portainer&rsquo;s\
-        \ rich management functionality within your docker desktop experience.</p><h2\
-        \ data-renderer-start-pos=\"374\">With Portainer you can:</h2><ul><li>See\
-        \ all your running containers</li><li>Easily view all of your container logs</li><li>Console\
-        \ into containers</li><li>Easily deploy your code into containers using a\
-        \ simple form</li><li>Turn your YAML into custom templates for easy reuse</li></ul><h2\
-        \ data-renderer-start-pos=\"660\">About Portainer&nbsp;</h2><p data-renderer-start-pos=\"\
-        680\">Portainer is the worlds&rsquo; most popular universal container management\
-        \ platform with more than 650,000 active monthly users. Portainer can be used\
-        \ to manage Docker Standalone, Kubernetes, Docker Swarm and Nomad environments\
-        \ through a single common interface. It includes a simple GitOps automation\
-        \ engine and a Kube API.&nbsp;</p><p data-renderer-start-pos=\"1006\">Portainer\
-        \ Business Edition is our fully supported commercial grade product for business-wide\
-        \ use. It includes all the functionality that businesses need to manage containers\
-        \ at scale. Visit <a class=\"sc-jKJlTe dPfAtb\" href=\"http://portainer.io/\"\
-        \ title=\"http://Portainer.io\" data-renderer-mark=\"true\">Portainer.io</a>\
-        \ to learn more about Portainer Business and <a class=\"sc-jKJlTe dPfAtb\"\
-        \ href=\"http://portainer.io/take5?utm_campaign=DockerCon&amp;utm_source=Docker%20Desktop\"\
-        \ title=\"http://portainer.io/take5?utm_campaign=DockerCon&amp;utm_source=Docker%20Desktop\"\
-        \ data-renderer-mark=\"true\">get 5 free nodes.</a></p>"
-      com.docker.extension.publisher-url: "https://www.portainer.io"
-      com.docker.extension.screenshots: "[{\"alt\": \"screenshot one\", \"url\": \"\
-        https://portainer-io-assets.sfo2.digitaloceanspaces.com/screenshots/docker-extension-1.png\"\
-        },{\"alt\": \"screenshot two\", \"url\": \"https://portainer-io-assets.sfo2.digitaloceanspaces.com/screenshots/docker-extension-2.png\"\
-        },{\"alt\": \"screenshot three\", \"url\": \"https://portainer-io-assets.sfo2.digitaloceanspaces.com/screenshots/docker-extension-3.png\"\
-        },{\"alt\": \"screenshot four\", \"url\": \"https://portainer-io-assets.sfo2.digitaloceanspaces.com/screenshots/docker-extension-4.png\"\
-        },{\"alt\": \"screenshot five\", \"url\": \"https://portainer-io-assets.sfo2.digitaloceanspaces.com/screenshots/docker-extension-5.png\"\
-        },{\"alt\": \"screenshot six\", \"url\": \"https://portainer-io-assets.sfo2.digitaloceanspaces.com/screenshots/docker-extension-6.png\"\
-        },{\"alt\": \"screenshot seven\", \"url\": \"https://portainer-io-assets.sfo2.digitaloceanspaces.com/screenshots/docker-extension-7.png\"\
-        },{\"alt\": \"screenshot eight\", \"url\": \"https://portainer-io-assets.sfo2.digitaloceanspaces.com/screenshots/docker-extension-8.png\"\
-        },{\"alt\": \"screenshot nine\", \"url\": \"https://portainer-io-assets.sfo2.digitaloceanspaces.com/screenshots/docker-extension-9.png\"\
-        }]"
       io.portainer.server: "true"
       org.opencontainers.image.description: "Docker container management made simple,\
         \ with the world’s most popular GUI-based container management platform."
@@ -110,7 +71,7 @@ services:
     labels:
       homepage.description: "Torrent Downloads"
       homepage.group: "Media Downloaders"
-      homepage.href: "http://10.0.0.11:3000/"
+      homepage.href: "http://x.x.x.x:3000/"
       homepage.icon: "flood.png"
       homepage.name: "Flood"
     logging:
@@ -174,28 +135,10 @@ services:
       build_version: "Linuxserver.io version:- v0.17.100-ls10 Build-date:- 2020-12-17T06:33:55+00:00"
       homepage.description: "Torrent Proxy"
       homepage.group: "Media Downloaders"
-      homepage.href: "http://10.0.0.11:9117/jackett/UI/Dashboard"
+      homepage.href: "http://x.x.x.x:9117/jackett/UI/Dashboard"
       homepage.icon: "jackett.png"
       homepage.name: "Jackett"
       maintainer: "thelamer"
-      org.opencontainers.image.authors: "linuxserver.io"
-      org.opencontainers.image.created: "2021-07-15T07:22:53+00:00"
-      org.opencontainers.image.description: "[Jackett](https://github.com/Jackett/Jackett)\
-        \ works as a proxy server: it translates queries from apps (Sonarr, SickRage,\
-        \ CouchPotato, Mylar, etc) into tracker-site-specific http queries, parses\
-        \ the html response, then sends results back to the requesting software. This\
-        \ allows for getting recent uploads (like RSS) and performing searches. Jackett\
-        \ is a single repository of maintained indexer scraping & translation logic\
-        \ - removing the burden from other apps."
-      org.opencontainers.image.documentation: "https://docs.linuxserver.io/images/docker-jackett"
-      org.opencontainers.image.licenses: "GPL-3.0-only"
-      org.opencontainers.image.ref.name: "244c0b587516c661dfbc405584b7841eb2bf89ad"
-      org.opencontainers.image.revision: "244c0b587516c661dfbc405584b7841eb2bf89ad"
-      org.opencontainers.image.source: "https://github.com/linuxserver/docker-jackett"
-      org.opencontainers.image.title: "Jackett"
-      org.opencontainers.image.url: "https://github.com/linuxserver/docker-jackett/packages"
-      org.opencontainers.image.vendor: "linuxserver.io"
-      org.opencontainers.image.version: "v0.18.432-ls36"
     logging:
       driver: "json-file"
       options: {}
@@ -253,30 +196,12 @@ services:
     ipc: "private"
     labels:
       build_version: "Linuxserver.io version:- v0.5.1-ls61 Build-date:- 2020-12-16T20:15:35+00:00"
-      flame.icon: "television"
-      flame.name: "Medusa"
-      flame.type: "application"
-      flame.url: "https://seedbox.keithsolomon.net/medusa"
       homepage.description: "TV Search"
       homepage.group: "Media Management"
       homepage.href: "https://10.0.0.11:8081/medusa/home"
       homepage.icon: "medusa.png"
       homepage.name: "Medusa"
       maintainer: "sparklyballs,aptalca"
-      org.opencontainers.image.authors: "linuxserver.io"
-      org.opencontainers.image.created: "2021-04-17T20:30:07+00:00"
-      org.opencontainers.image.description: "[Medusa](https://pymedusa.com/) is an\
-        \ automatic Video Library Manager for TV Shows. It watches for new episodes\
-        \ of your favorite shows, and when they are posted it does its magic.  "
-      org.opencontainers.image.documentation: "https://docs.linuxserver.io/images/docker-medusa"
-      org.opencontainers.image.licenses: "GPL-3.0-only"
-      org.opencontainers.image.ref.name: "a4aad1a2bfdccf018f4f2dca50dd5ad9e73f609c"
-      org.opencontainers.image.revision: "a4aad1a2bfdccf018f4f2dca50dd5ad9e73f609c"
-      org.opencontainers.image.source: "https://github.com/linuxserver/docker-medusa"
-      org.opencontainers.image.title: "Medusa"
-      org.opencontainers.image.url: "https://github.com/linuxserver/docker-medusa/packages"
-      org.opencontainers.image.vendor: "linuxserver.io"
-      org.opencontainers.image.version: "v0.5.11-ls71"
     logging:
       driver: "json-file"
       options: {}
@@ -336,24 +261,10 @@ services:
       build_version: "Linuxserver.io version:- v21.0-ls66 Build-date:- 2020-12-16T14:06:36-05:00"
       homepage.description: "Newsgroup Downloader"
       homepage.group: "Media Downloaders"
-      homepage.href: "http://10.0.0.11:6789/"
+      homepage.href: "http://x.x.x.x:6789/"
       homepage.icon: "nzbget.png"
       homepage.name: "NZBGet"
       maintainer: "thelamer"
-      org.opencontainers.image.authors: "linuxserver.io"
-      org.opencontainers.image.created: "2021-09-02T11:29:58+02:00"
-      org.opencontainers.image.description: "[Nzbget](http://nzbget.net/) is a usenet\
-        \ downloader, written in C++ and designed with performance in mind to achieve\
-        \ maximum download speed by using very little system resources."
-      org.opencontainers.image.documentation: "https://docs.linuxserver.io/images/docker-nzbget"
-      org.opencontainers.image.licenses: "GPL-3.0-only"
-      org.opencontainers.image.ref.name: "504f0d888fbece624cf02fab059c16aa6a0677a7"
-      org.opencontainers.image.revision: "504f0d888fbece624cf02fab059c16aa6a0677a7"
-      org.opencontainers.image.source: "https://github.com/linuxserver/docker-nzbget"
-      org.opencontainers.image.title: "Nzbget"
-      org.opencontainers.image.url: "https://github.com/linuxserver/docker-nzbget/packages"
-      org.opencontainers.image.vendor: "linuxserver.io"
-      org.opencontainers.image.version: "v21.1-ls92"
     logging:
       driver: "json-file"
       options: {}
@@ -413,29 +324,12 @@ services:
     ipc: "private"
     labels:
       build_version: "Linuxserver.io version:- 3.0.1.4259-ls88 Build-date:- 2020-12-15T22:47:25-05:00"
-      flame.icon: "radar"
-      flame.name: "Radarr"
-      flame.type: "application"
-      flame.url: "https://seedbox.keithsolomon.net/radarr"
       homepage.description: "Movie Search"
       homepage.group: "Media Management"
-      homepage.href: "http://10.0.0.11:7878/radarr/"
+      homepage.href: "http://x.x.x.x:7878/radarr/"
       homepage.icon: "radarr.png"
       homepage.name: "Radarr"
       maintainer: "thelamer"
-      org.opencontainers.image.authors: "linuxserver.io"
-      org.opencontainers.image.created: "2021-05-18T11:55:20+00:00"
-      org.opencontainers.image.description: "[Radarr](https://github.com/Radarr/Radarr)\
-        \ - A fork of Sonarr to work with movies à la Couchpotato.  "
-      org.opencontainers.image.documentation: "https://docs.linuxserver.io/images/docker-radarr"
-      org.opencontainers.image.licenses: "GPL-3.0-only"
-      org.opencontainers.image.ref.name: "141ef4eb668cc9b4046e2133fb61d3c08e8597c0"
-      org.opencontainers.image.revision: "141ef4eb668cc9b4046e2133fb61d3c08e8597c0"
-      org.opencontainers.image.source: "https://github.com/linuxserver/docker-radarr"
-      org.opencontainers.image.title: "Radarr"
-      org.opencontainers.image.url: "https://github.com/linuxserver/docker-radarr/packages"
-      org.opencontainers.image.vendor: "linuxserver.io"
-      org.opencontainers.image.version: "3.2.0.5048-ls104"
     logging:
       driver: "json-file"
       options: {}
@@ -493,27 +387,12 @@ services:
     ipc: "private"
     labels:
       build_version: "Linuxserver.io version:- 3.00-r0-ls70 Build-date:- 2020-12-16T17:39:44-05:00"
-      flame.icon: "cloud-download"
-      flame.name: "Transmission"
-      flame.type: "application"
-      flame.url: "http://seedbox.keithsolomon.net/transmission"
       maintainer: "aptalca"
-      org.opencontainers.image.authors: "linuxserver.io"
-      org.opencontainers.image.created: "2021-09-02T05:34:47+02:00"
-      org.opencontainers.image.description: "[Transmission](https://www.transmissionbt.com/)\
-        \ is designed for easy, powerful use. Transmission has the features you want\
-        \ from a BitTorrent client: encryption, a web interface, peer exchange, magnet\
-        \ links, DHT, µTP, UPnP and NAT-PMP port forwarding, webseed support, watch\
-        \ directories, tracker editing, global and per-torrent speed limits, and more."
-      org.opencontainers.image.documentation: "https://docs.linuxserver.io/images/docker-transmission"
-      org.opencontainers.image.licenses: "GPL-3.0-only"
-      org.opencontainers.image.ref.name: "229ac93d3352d7232b3f8c1dab779feda92e7114"
-      org.opencontainers.image.revision: "229ac93d3352d7232b3f8c1dab779feda92e7114"
-      org.opencontainers.image.source: "https://github.com/linuxserver/docker-transmission"
-      org.opencontainers.image.title: "Transmission"
-      org.opencontainers.image.url: "https://github.com/linuxserver/docker-transmission/packages"
-      org.opencontainers.image.vendor: "linuxserver.io"
-      org.opencontainers.image.version: "3.00-r2-ls99"
+      homepage.description: "Torrent Downloads (old interface)"
+      homepage.group: "Media Downloaders"
+      homepage.href: "http://x.x.x.x:9091/"
+      homepage.icon: "transmission.png"
+      homepage.name: "Transmission"
     logging:
       driver: "json-file"
       options: {}
@@ -581,16 +460,6 @@ services:
       com.docker.compose.project.working_dir: "/data/compose/5"
       com.docker.compose.service: "homepage"
       com.docker.compose.version: "2.10.2"
-      org.opencontainers.image.created: "2023-01-29T06:09:08.678Z"
-      org.opencontainers.image.description: "A highly customizable homepage (or startpage\
-        \ / application dashboard) with Docker and service API integrations."
-      org.opencontainers.image.documentation: "https://github.com/benphelps/homepage/wiki"
-      org.opencontainers.image.licenses: "GPL-3.0"
-      org.opencontainers.image.revision: "5af01d2436467c9568143c2216c0e37a71a80c47"
-      org.opencontainers.image.source: "https://github.com/benphelps/homepage"
-      org.opencontainers.image.title: "homepage"
-      org.opencontainers.image.url: "https://github.com/benphelps/homepage"
-      org.opencontainers.image.version: "v0.6.4"
     logging:
       driver: "json-file"
       options: {}

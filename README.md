@@ -16,6 +16,17 @@
   - NZBGet (port 6789)
 
 ## Initial Setup ##
+  - Update all occurances of `x.x.x.x` with the host's IP address
+  - Change server storage mount to suit your environment by changing all occurances of `/mnt/plex` to match
+  - Change downloads folder to suit your environment by changing all occurances of `/downloads` to match
+
+## Install ##
+  - Clone this repo to your host machine with the following command:
+    - `git clone https://github.com/ksolomon/Seedbox-Docker-Compose-Build.git`
+  - Change to the new folder and run the following command:
+    - `docker-compose up -d`
+
+## Notes ##
 Initial docker-compose file was generated with [docker-autocompose](https://github.com/Red5d/docker-autocompose), using the following command:
 
 `docker run --rm -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/red5d/docker-autocompose Medusa Flood NZBGet Radarr Transmission Jackett homepage portainer > seedbox-stack.yaml`
