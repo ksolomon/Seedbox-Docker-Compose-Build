@@ -24,7 +24,7 @@
   - Clone this repo to your host machine with the following command:
     - `git clone https://github.com/ksolomon/Seedbox-Docker-Compose-Build.git`
   - Change to the new folder and run the following command:
-    - `docker-compose up -d`
+    - `docker-compose -f seedbox-stack.yaml up -d`
 
 ## Notes ##
 Initial docker-compose file was generated with [docker-autocompose](https://github.com/Red5d/docker-autocompose), using the following command:
