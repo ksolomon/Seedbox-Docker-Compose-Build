@@ -26,6 +26,10 @@
   - Change to the new folder and run the following command:
     - `docker-compose -f seedbox-stack.yaml up -d`
 
+## Homepage Setup ##
+  - Edit the `/opt/homepage/docker.yaml` file and remove the comments from the socket lines at the bottom of the file.  The interface will refresh automatically, showing the services that were installed by the compose script.
+  - Other files in `/opt/homepage` can be edited to add other services/sites.
+
 ## Notes ##
 Initial docker-compose file was generated with [docker-autocompose](https://github.com/Red5d/docker-autocompose), using the following command:
 
