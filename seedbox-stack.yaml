@@ -19,7 +19,6 @@ services:
       driver: "json-file"
       options: {}
     mac_address: "02:42:ac:11:00:07"
-    network_mode: "bridge"
     networks:
       - "seedbox_default"
     ports:
@@ -78,7 +77,6 @@ services:
       driver: "json-file"
       options: {}
     mac_address: "02:42:ac:11:00:06"
-    network_mode: "bridge"
     networks:
       - "seedbox_default"
     ports:
@@ -124,7 +122,6 @@ services:
       - "XDG_DATA_HOME=/config"
       - "XDG_CONFIG_HOME=/config"
       - "S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0"
-      - "PS1=$(whoami)@$(hostname):$(pwd)\\$"
       - "S6_VERBOSITY=1"
       - "S6_STAGE2_HOOK=/docker-mods"
       - "LSIO_FIRST_PARTY=true"
@@ -143,7 +140,6 @@ services:
       driver: "json-file"
       options: {}
     mac_address: "02:42:ac:11:00:03"
-    network_mode: "bridge"
     networks:
       - "seedbox_default"
     ports:
@@ -183,7 +179,6 @@ services:
       - "/init"
     environment:
       - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-      - "PS1=$(whoami)@$(hostname):$(pwd)\\$"
       - "HOME=/root"
       - "TERM=xterm"
       - "LANG=en_US.UTF-8"
@@ -206,7 +201,6 @@ services:
       driver: "json-file"
       options: {}
     mac_address: "02:42:ac:11:00:02"
-    network_mode: "bridge"
     networks:
       - "seedbox_default"
     ports:
@@ -248,7 +242,6 @@ services:
       - "/init"
     environment:
       - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-      - "PS1=$(whoami)@$(hostname):$(pwd)\\$"
       - "HOME=/root"
       - "TERM=xterm"
       - "S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0"
@@ -269,7 +262,6 @@ services:
       driver: "json-file"
       options: {}
     mac_address: "02:42:ac:11:00:04"
-    network_mode: "bridge"
     networks:
       - "seedbox_default"
     ports:
@@ -314,7 +306,6 @@ services:
       - "LANG=en_US.UTF-8"
       - "TERM=xterm"
       - "XDG_CONFIG_HOME=/config/xdg"
-      - "PS1=$(whoami)@$(hostname):$(pwd)\\$"
       - "S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0"
       - "S6_VERBOSITY=1"
       - "S6_STAGE2_HOOK=/docker-mods"
@@ -334,7 +325,6 @@ services:
       driver: "json-file"
       options: {}
     mac_address: "02:42:ac:11:00:08"
-    network_mode: "bridge"
     networks:
       - "seedbox_default"
     ports:
@@ -375,7 +365,6 @@ services:
       - "/init"
     environment:
       - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-      - "PS1=$(whoami)@$(hostname):$(pwd)\\$"
       - "HOME=/root"
       - "TERM=xterm"
       - "S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0"
@@ -397,7 +386,6 @@ services:
       driver: "json-file"
       options: {}
     mac_address: "02:42:ac:11:00:05"
-    network_mode: "bridge"
     networks:
       - "seedbox_default"
     ports:
@@ -473,13 +461,22 @@ services:
     working_dir: "/app"
 networks:
   seedbox_default:
+    external: true
     name: "seedbox_default"
 volumes:
   portainer_data:
+    external: true
   radarr:
+    external: true
   medusa-config:
+    external: true
   medusa-data:
+    external: true
   transmission-config:
+    external: true
   transmission-watch:
+    external: true
   nzbget:
+    external: true
   jackett:
+    external: true
