@@ -193,7 +193,7 @@ services:
       build_version: "Linuxserver.io version:- v0.5.1-ls61 Build-date:- 2020-12-16T20:15:35+00:00"
       homepage.description: "TV Search"
       homepage.group: "Media Management"
-      homepage.href: "https://10.0.0.11:8081/medusa/home"
+      homepage.href: "http://x.x.x.x:8081/home"
       homepage.icon: "medusa.png"
       homepage.name: "Medusa"
       maintainer: "sparklyballs,aptalca"
