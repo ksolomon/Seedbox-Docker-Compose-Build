@@ -34,3 +34,6 @@
 Initial docker-compose file was generated with [docker-autocompose](https://github.com/Red5d/docker-autocompose), using the following command:
 
 `docker run --rm -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/red5d/docker-autocompose Medusa Flood NZBGet Radarr Transmission Jackett homepage portainer > seedbox-stack.yaml`
+
+## Changelog ##
+07.15.2023 - Added action to push commit message to Notion.
