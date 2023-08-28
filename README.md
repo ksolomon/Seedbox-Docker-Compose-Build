@@ -16,6 +16,7 @@
   - NZBGet (port 6789)
 
 ## Initial Setup ##
+Edit seedbox-stack.yaml and do the following:
   - Update all occurances of `x.x.x.x` with the host's IP address
   - Change server storage mount to suit your environment by changing all occurances of `/mnt/plex` to match
   - Change downloads folder to suit your environment by changing all occurances of `/downloads` to match
