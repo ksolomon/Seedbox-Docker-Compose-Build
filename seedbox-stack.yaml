@@ -1,467 +1,467 @@
-version: "3.6"
+version: 3.6
 services:
   Portainer:
-    container_name: "Portainer"
+    container_name: Portainer
     entrypoint:
-      - "/portainer"
+      - /portainer
     environment:
-      - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-    hostname: "portainer"
-    image: "cr.portainer.io/portainer/portainer-ce:latest"
-    ipc: "private"
+      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    hostname: portainer
+    image: cr.portainer.io/portainer/portainer-ce:latest
+    ipc: private
     labels:
-      io.portainer.server: "true"
-      org.opencontainers.image.description: "Docker container management made simple,\
-        \ with the world’s most popular GUI-based container management platform."
-      org.opencontainers.image.title: "Portainer"
-      org.opencontainers.image.vendor: "Portainer.io"
+      io.portainer.server: true
+      org.opencontainers.image.description: Docker container management made simple,\
+        \ with the world’s most popular GUI-based container management platform.
+      org.opencontainers.image.title: Portainer
+      org.opencontainers.image.vendor: Portainer.io
     logging:
-      driver: "json-file"
+      driver: json-file
       options: {}
-    mac_address: "02:42:ac:11:00:07"
+    mac_address: 02:42:ac:11:00:07
     networks:
-      - "seedbox_default"
+      - seedbox_default
     ports:
-      - "8000:8000/tcp"
-      - "9443:9443/tcp"
-    restart: "always"
+      - 8000:8000/tcp
+      - 9443:9443/tcp
+    restart: always
     volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
-      - "portainer_data:/data"
-    working_dir: "/"
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    working_dir: /
   Flood:
     cap_drop:
-      - "AUDIT_CONTROL"
-      - "BLOCK_SUSPEND"
-      - "DAC_READ_SEARCH"
-      - "IPC_LOCK"
-      - "IPC_OWNER"
-      - "LEASE"
-      - "LINUX_IMMUTABLE"
-      - "MAC_ADMIN"
-      - "MAC_OVERRIDE"
-      - "NET_ADMIN"
-      - "NET_BROADCAST"
-      - "SYSLOG"
-      - "SYS_ADMIN"
-      - "SYS_BOOT"
-      - "SYS_MODULE"
-      - "SYS_NICE"
-      - "SYS_PACCT"
-      - "SYS_PTRACE"
-      - "SYS_RAWIO"
-      - "SYS_RESOURCE"
-      - "SYS_TIME"
-      - "SYS_TTY_CONFIG"
-      - "WAKE_ALARM"
-    container_name: "Flood"
+      - AUDIT_CONTROL
+      - BLOCK_SUSPEND
+      - DAC_READ_SEARCH
+      - IPC_LOCK
+      - IPC_OWNER
+      - LEASE
+      - LINUX_IMMUTABLE
+      - MAC_ADMIN
+      - MAC_OVERRIDE
+      - NET_ADMIN
+      - NET_BROADCAST
+      - SYSLOG
+      - SYS_ADMIN
+      - SYS_BOOT
+      - SYS_MODULE
+      - SYS_NICE
+      - SYS_PACCT
+      - SYS_PTRACE
+      - SYS_RAWIO
+      - SYS_RESOURCE
+      - SYS_TIME
+      - SYS_TTY_CONFIG
+      - WAKE_ALARM
+    container_name: Flood
     entrypoint:
-      - "/sbin/tini"
-      - "--"
-      - "flood"
+      - /sbin/tini
+      - --
+      - flood
     environment:
-      - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-      - "NODE_VERSION=16.10.0"
-      - "YARN_VERSION=1.22.5"
-      - "FLOOD_OPTION_HOST=0.0.0.0"
-    hostname: "flood"
-    image: "jesec/flood:latest"
-    ipc: "private"
+      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      - NODE_VERSION=16.10.0
+      - YARN_VERSION=1.22.5
+      - FLOOD_OPTION_HOST=0.0.0.0
+    hostname: flood
+    image: jesec/flood:latest
+    ipc: private
     labels:
-      homepage.description: "Torrent Downloads"
-      homepage.group: "Media Downloaders"
-      homepage.href: "http://x.x.x.x:3000/"
-      homepage.icon: "flood.png"
-      homepage.name: "Flood"
+      homepage.description: Torrent Downloads
+      homepage.group: Media Downloaders
+      homepage.href: http://x.x.x.x:3000/
+      homepage.icon: flood.png
+      homepage.name: Flood
     logging:
-      driver: "json-file"
+      driver: json-file
       options: {}
-    mac_address: "02:42:ac:11:00:06"
+    mac_address: 02:42:ac:11:00:06
     networks:
-      - "seedbox_default"
+      - seedbox_default
     ports:
-      - "3000:3000/tcp"
-    restart: "always"
-    user: "download"
+      - 3000:3000/tcp
+    restart: unless-stopped
+    user: download
     volumes:
-      - "/downloads:/downloads"
+      - /downloads:/downloads
   Jackett:
     cap_drop:
-      - "AUDIT_CONTROL"
-      - "BLOCK_SUSPEND"
-      - "DAC_READ_SEARCH"
-      - "IPC_LOCK"
-      - "IPC_OWNER"
-      - "LEASE"
-      - "LINUX_IMMUTABLE"
-      - "MAC_ADMIN"
-      - "MAC_OVERRIDE"
-      - "NET_ADMIN"
-      - "NET_BROADCAST"
-      - "SYSLOG"
-      - "SYS_ADMIN"
-      - "SYS_BOOT"
-      - "SYS_MODULE"
-      - "SYS_NICE"
-      - "SYS_PACCT"
-      - "SYS_PTRACE"
-      - "SYS_RAWIO"
-      - "SYS_RESOURCE"
-      - "SYS_TIME"
-      - "SYS_TTY_CONFIG"
-      - "WAKE_ALARM"
-    container_name: "Jackett"
+      - AUDIT_CONTROL
+      - BLOCK_SUSPEND
+      - DAC_READ_SEARCH
+      - IPC_LOCK
+      - IPC_OWNER
+      - LEASE
+      - LINUX_IMMUTABLE
+      - MAC_ADMIN
+      - MAC_OVERRIDE
+      - NET_ADMIN
+      - NET_BROADCAST
+      - SYSLOG
+      - SYS_ADMIN
+      - SYS_BOOT
+      - SYS_MODULE
+      - SYS_NICE
+      - SYS_PACCT
+      - SYS_PTRACE
+      - SYS_RAWIO
+      - SYS_RESOURCE
+      - SYS_TIME
+      - SYS_TTY_CONFIG
+      - WAKE_ALARM
+    container_name: Jackett
     entrypoint:
-      - "/init"
+      - /init
     environment:
-      - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-      - "HOME=/root"
-      - "LANGUAGE=en_US.UTF-8"
-      - "LANG=en_US.UTF-8"
-      - "TERM=xterm"
-      - "XDG_DATA_HOME=/config"
-      - "XDG_CONFIG_HOME=/config"
-      - "S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0"
-      - "S6_VERBOSITY=1"
-      - "S6_STAGE2_HOOK=/docker-mods"
-      - "LSIO_FIRST_PARTY=true"
-    hostname: "jackett"
-    image: "linuxserver/jackett:latest"
-    ipc: "private"
+      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      - HOME=/root
+      - LANGUAGE=en_US.UTF-8
+      - LANG=en_US.UTF-8
+      - TERM=xterm
+      - XDG_DATA_HOME=/config
+      - XDG_CONFIG_HOME=/config
+      - S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0
+      - S6_VERBOSITY=1
+      - S6_STAGE2_HOOK=/docker-mods
+      - LSIO_FIRST_PARTY=true
+    hostname: jackett
+    image: linuxserver/jackett:latest
+    ipc: private
     labels:
-      build_version: "Linuxserver.io version:- v0.17.100-ls10 Build-date:- 2020-12-17T06:33:55+00:00"
-      homepage.description: "Torrent Proxy"
-      homepage.group: "Media Downloaders"
-      homepage.href: "http://x.x.x.x:9117/jackett/UI/Dashboard"
-      homepage.icon: "jackett.png"
-      homepage.name: "Jackett"
-      maintainer: "thelamer"
+      build_version: Linuxserver.io version:- v0.17.100-ls10 Build-date:- 2020-12-17T06:33:55+00:00
+      homepage.description: Torrent Proxy
+      homepage.group: Media Downloaders
+      homepage.href: http://x.x.x.x:9117/jackett/UI/Dashboard
+      homepage.icon: jackett.png
+      homepage.name: Jackett
+      maintainer: thelamer
     logging:
-      driver: "json-file"
+      driver: json-file
       options: {}
-    mac_address: "02:42:ac:11:00:03"
+    mac_address: 02:42:ac:11:00:03
     networks:
-      - "seedbox_default"
+      - seedbox_default
     ports:
-      - "9117:9117/tcp"
-    restart: "always"
+      - 9117:9117/tcp
+    restart: unless-stopped
     volumes:
-      - "jackett:/config"
-      - "/downloads:/downloads"
-    working_dir: "/"
+      - jackett:/config
+      - /downloads:/downloads
+    working_dir: /
   Medusa:
     cap_drop:
-      - "AUDIT_CONTROL"
-      - "BLOCK_SUSPEND"
-      - "DAC_READ_SEARCH"
-      - "IPC_LOCK"
-      - "IPC_OWNER"
-      - "LEASE"
-      - "LINUX_IMMUTABLE"
-      - "MAC_ADMIN"
-      - "MAC_OVERRIDE"
-      - "NET_ADMIN"
-      - "NET_BROADCAST"
-      - "SYSLOG"
-      - "SYS_ADMIN"
-      - "SYS_BOOT"
-      - "SYS_MODULE"
-      - "SYS_NICE"
-      - "SYS_PACCT"
-      - "SYS_PTRACE"
-      - "SYS_RAWIO"
-      - "SYS_RESOURCE"
-      - "SYS_TIME"
-      - "SYS_TTY_CONFIG"
-      - "WAKE_ALARM"
-    container_name: "Medusa"
+      - AUDIT_CONTROL
+      - BLOCK_SUSPEND
+      - DAC_READ_SEARCH
+      - IPC_LOCK
+      - IPC_OWNER
+      - LEASE
+      - LINUX_IMMUTABLE
+      - MAC_ADMIN
+      - MAC_OVERRIDE
+      - NET_ADMIN
+      - NET_BROADCAST
+      - SYSLOG
+      - SYS_ADMIN
+      - SYS_BOOT
+      - SYS_MODULE
+      - SYS_NICE
+      - SYS_PACCT
+      - SYS_PTRACE
+      - SYS_RAWIO
+      - SYS_RESOURCE
+      - SYS_TIME
+      - SYS_TTY_CONFIG
+      - WAKE_ALARM
+    container_name: Medusa
     entrypoint:
-      - "/init"
+      - /init
     environment:
-      - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-      - "HOME=/root"
-      - "TERM=xterm"
-      - "LANG=en_US.UTF-8"
-      - "S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0"
-      - "S6_VERBOSITY=1"
-      - "S6_STAGE2_HOOK=/docker-mods"
-      - "LSIO_FIRST_PARTY=true"
-    hostname: "medusa"
-    image: "linuxserver/medusa:latest"
-    ipc: "private"
+      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      - HOME=/root
+      - TERM=xterm
+      - LANG=en_US.UTF-8
+      - S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0
+      - S6_VERBOSITY=1
+      - S6_STAGE2_HOOK=/docker-mods
+      - LSIO_FIRST_PARTY=true
+    hostname: medusa
+    image: linuxserver/medusa:latest
+    ipc: private
     labels:
-      build_version: "Linuxserver.io version:- v0.5.1-ls61 Build-date:- 2020-12-16T20:15:35+00:00"
-      homepage.description: "TV Search"
-      homepage.group: "Media Management"
-      homepage.href: "http://x.x.x.x:8081/home"
-      homepage.icon: "medusa.png"
-      homepage.name: "Medusa"
-      maintainer: "sparklyballs,aptalca"
+      build_version: Linuxserver.io version:- v0.5.1-ls61 Build-date:- 2020-12-16T20:15:35+00:00
+      homepage.description: TV Search
+      homepage.group: Media Management
+      homepage.href: http://x.x.x.x:8081/home
+      homepage.icon: medusa.png
+      homepage.name: Medusa
+      maintainer: sparklyballs,aptalca
     logging:
-      driver: "json-file"
+      driver: json-file
       options: {}
-    mac_address: "02:42:ac:11:00:02"
+    mac_address: 02:42:ac:11:00:02
     networks:
-      - "seedbox_default"
+      - seedbox_default
     ports:
-      - "8081:8081/tcp"
-    restart: "always"
+      - 8081:8081/tcp
+    restart: unless-stopped
     volumes:
-      - "medusa-config:/config"
-      - "/downloads:/downloads"
-      - "/mnt/plex:/mnt/plex"
-      - "medusa-data:/tv"
-    working_dir: "/"
+      - medusa-config:/config
+      - /downloads:/downloads
+      - /mnt/plex:/mnt/plex
+      - medusa-data:/tv
+    working_dir: /
   NZBGet:
     cap_drop:
-      - "AUDIT_CONTROL"
-      - "BLOCK_SUSPEND"
-      - "DAC_READ_SEARCH"
-      - "IPC_LOCK"
-      - "IPC_OWNER"
-      - "LEASE"
-      - "LINUX_IMMUTABLE"
-      - "MAC_ADMIN"
-      - "MAC_OVERRIDE"
-      - "NET_ADMIN"
-      - "NET_BROADCAST"
-      - "SYSLOG"
-      - "SYS_ADMIN"
-      - "SYS_BOOT"
-      - "SYS_MODULE"
-      - "SYS_NICE"
-      - "SYS_PACCT"
-      - "SYS_PTRACE"
-      - "SYS_RAWIO"
-      - "SYS_RESOURCE"
-      - "SYS_TIME"
-      - "SYS_TTY_CONFIG"
-      - "WAKE_ALARM"
-    container_name: "NZBGet"
+      - AUDIT_CONTROL
+      - BLOCK_SUSPEND
+      - DAC_READ_SEARCH
+      - IPC_LOCK
+      - IPC_OWNER
+      - LEASE
+      - LINUX_IMMUTABLE
+      - MAC_ADMIN
+      - MAC_OVERRIDE
+      - NET_ADMIN
+      - NET_BROADCAST
+      - SYSLOG
+      - SYS_ADMIN
+      - SYS_BOOT
+      - SYS_MODULE
+      - SYS_NICE
+      - SYS_PACCT
+      - SYS_PTRACE
+      - SYS_RAWIO
+      - SYS_RESOURCE
+      - SYS_TIME
+      - SYS_TTY_CONFIG
+      - WAKE_ALARM
+    container_name: NZBGet
     entrypoint:
-      - "/init"
+      - /init
     environment:
-      - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-      - "HOME=/root"
-      - "TERM=xterm"
-      - "S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0"
-      - "S6_VERBOSITY=1"
-      - "S6_STAGE2_HOOK=/docker-mods"
-    hostname: "nzbget"
-    image: "linuxserver/nzbget:latest"
-    ipc: "private"
+      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      - HOME=/root
+      - TERM=xterm
+      - S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0
+      - S6_VERBOSITY=1
+      - S6_STAGE2_HOOK=/docker-mods
+    hostname: nzbget
+    image: linuxserver/nzbget:latest
+    ipc: private
     labels:
-      build_version: "Linuxserver.io version:- v21.0-ls66 Build-date:- 2020-12-16T14:06:36-05:00"
-      homepage.description: "Newsgroup Downloader"
-      homepage.group: "Media Downloaders"
-      homepage.href: "http://x.x.x.x:6789/"
-      homepage.icon: "nzbget.png"
-      homepage.name: "NZBGet"
-      maintainer: "thelamer"
+      build_version: Linuxserver.io version:- v21.0-ls66 Build-date:- 2020-12-16T14:06:36-05:00
+      homepage.description: Newsgroup Downloader
+      homepage.group: Media Downloaders
+      homepage.href: http://x.x.x.x:6789/
+      homepage.icon: nzbget.png
+      homepage.name: NZBGet
+      maintainer: thelamer
     logging:
-      driver: "json-file"
+      driver: json-file
       options: {}
-    mac_address: "02:42:ac:11:00:04"
+    mac_address: 02:42:ac:11:00:04
     networks:
-      - "seedbox_default"
+      - seedbox_default
     ports:
-      - "6789:6789/tcp"
-    restart: "always"
+      - 6789:6789/tcp
+    restart: unless-stopped
     volumes:
-      - "nzbget:/config"
-      - "/downloads:/downloads"
-    working_dir: "/"
+      - nzbget:/config
+      - /downloads:/downloads
+    working_dir: /
   Radarr:
     cap_drop:
-      - "AUDIT_CONTROL"
-      - "BLOCK_SUSPEND"
-      - "DAC_READ_SEARCH"
-      - "IPC_LOCK"
-      - "IPC_OWNER"
-      - "LEASE"
-      - "LINUX_IMMUTABLE"
-      - "MAC_ADMIN"
-      - "MAC_OVERRIDE"
-      - "NET_ADMIN"
-      - "NET_BROADCAST"
-      - "SYSLOG"
-      - "SYS_ADMIN"
-      - "SYS_BOOT"
-      - "SYS_MODULE"
-      - "SYS_NICE"
-      - "SYS_PACCT"
-      - "SYS_PTRACE"
-      - "SYS_RAWIO"
-      - "SYS_RESOURCE"
-      - "SYS_TIME"
-      - "SYS_TTY_CONFIG"
-      - "WAKE_ALARM"
-    container_name: "Radarr"
+      - AUDIT_CONTROL
+      - BLOCK_SUSPEND
+      - DAC_READ_SEARCH
+      - IPC_LOCK
+      - IPC_OWNER
+      - LEASE
+      - LINUX_IMMUTABLE
+      - MAC_ADMIN
+      - MAC_OVERRIDE
+      - NET_ADMIN
+      - NET_BROADCAST
+      - SYSLOG
+      - SYS_ADMIN
+      - SYS_BOOT
+      - SYS_MODULE
+      - SYS_NICE
+      - SYS_PACCT
+      - SYS_PTRACE
+      - SYS_RAWIO
+      - SYS_RESOURCE
+      - SYS_TIME
+      - SYS_TTY_CONFIG
+      - WAKE_ALARM
+    container_name: Radarr
     entrypoint:
-      - "/init"
+      - /init
     environment:
-      - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-      - "HOME=/root"
-      - "LANGUAGE=en_US.UTF-8"
-      - "LANG=en_US.UTF-8"
-      - "TERM=xterm"
-      - "XDG_CONFIG_HOME=/config/xdg"
-      - "S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0"
-      - "S6_VERBOSITY=1"
-      - "S6_STAGE2_HOOK=/docker-mods"
-      - "LSIO_FIRST_PARTY=true"
-    hostname: "radarr"
-    image: "linuxserver/radarr:latest"
-    ipc: "private"
+      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      - HOME=/root
+      - LANGUAGE=en_US.UTF-8
+      - LANG=en_US.UTF-8
+      - TERM=xterm
+      - XDG_CONFIG_HOME=/config/xdg
+      - S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0
+      - S6_VERBOSITY=1
+      - S6_STAGE2_HOOK=/docker-mods
+      - LSIO_FIRST_PARTY=true
+    hostname: radarr
+    image: linuxserver/radarr:latest
+    ipc: private
     labels:
-      build_version: "Linuxserver.io version:- 3.0.1.4259-ls88 Build-date:- 2020-12-15T22:47:25-05:00"
-      homepage.description: "Movie Search"
-      homepage.group: "Media Management"
-      homepage.href: "http://x.x.x.x:7878/radarr/"
-      homepage.icon: "radarr.png"
-      homepage.name: "Radarr"
-      maintainer: "thelamer"
+      build_version: Linuxserver.io version:- 3.0.1.4259-ls88 Build-date:- 2020-12-15T22:47:25-05:00
+      homepage.description: Movie Search
+      homepage.group: Media Management
+      homepage.href: http://x.x.x.x:7878/radarr/
+      homepage.icon: radarr.png
+      homepage.name: Radarr
+      maintainer: thelamer
     logging:
-      driver: "json-file"
+      driver: json-file
       options: {}
-    mac_address: "02:42:ac:11:00:08"
+    mac_address: 02:42:ac:11:00:08
     networks:
-      - "seedbox_default"
+      - seedbox_default
     ports:
-      - "7878:7878/tcp"
-    restart: "always"
+      - 7878:7878/tcp
+    restart: unless-stopped
     volumes:
-      - "radarr:/config"
-      - "/downloads:/downloads"
-      - "/mnt/plex:/mnt/plex"
-    working_dir: "/"
+      - radarr:/config
+      - /downloads:/downloads
+      - /mnt/plex:/mnt/plex
+    working_dir: /
   Transmission:
     cap_drop:
-      - "AUDIT_CONTROL"
-      - "BLOCK_SUSPEND"
-      - "DAC_READ_SEARCH"
-      - "IPC_LOCK"
-      - "IPC_OWNER"
-      - "LEASE"
-      - "LINUX_IMMUTABLE"
-      - "MAC_ADMIN"
-      - "MAC_OVERRIDE"
-      - "NET_ADMIN"
-      - "NET_BROADCAST"
-      - "SYSLOG"
-      - "SYS_ADMIN"
-      - "SYS_BOOT"
-      - "SYS_MODULE"
-      - "SYS_NICE"
-      - "SYS_PACCT"
-      - "SYS_PTRACE"
-      - "SYS_RAWIO"
-      - "SYS_RESOURCE"
-      - "SYS_TIME"
-      - "SYS_TTY_CONFIG"
-      - "WAKE_ALARM"
-    container_name: "Transmission"
+      - AUDIT_CONTROL
+      - BLOCK_SUSPEND
+      - DAC_READ_SEARCH
+      - IPC_LOCK
+      - IPC_OWNER
+      - LEASE
+      - LINUX_IMMUTABLE
+      - MAC_ADMIN
+      - MAC_OVERRIDE
+      - NET_ADMIN
+      - NET_BROADCAST
+      - SYSLOG
+      - SYS_ADMIN
+      - SYS_BOOT
+      - SYS_MODULE
+      - SYS_NICE
+      - SYS_PACCT
+      - SYS_PTRACE
+      - SYS_RAWIO
+      - SYS_RESOURCE
+      - SYS_TIME
+      - SYS_TTY_CONFIG
+      - WAKE_ALARM
+    container_name: Transmission
     entrypoint:
-      - "/init"
+      - /init
     environment:
-      - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-      - "HOME=/root"
-      - "TERM=xterm"
-      - "S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0"
-      - "S6_VERBOSITY=1"
-      - "S6_STAGE2_HOOK=/docker-mods"
-      - "LSIO_FIRST_PARTY=true"
-    hostname: "transmission"
-    image: "linuxserver/transmission:latest"
-    ipc: "private"
+      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      - HOME=/root
+      - TERM=xterm
+      - S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0
+      - S6_VERBOSITY=1
+      - S6_STAGE2_HOOK=/docker-mods
+      - LSIO_FIRST_PARTY=true
+    hostname: transmission
+    image: linuxserver/transmission:latest
+    ipc: private
     labels:
-      build_version: "Linuxserver.io version:- 3.00-r0-ls70 Build-date:- 2020-12-16T17:39:44-05:00"
-      maintainer: "aptalca"
-      homepage.description: "Torrent Downloads (old interface)"
-      homepage.group: "Media Downloaders"
-      homepage.href: "http://x.x.x.x:9091/"
-      homepage.icon: "transmission.png"
-      homepage.name: "Transmission"
+      build_version: Linuxserver.io version:- 3.00-r0-ls70 Build-date:- 2020-12-16T17:39:44-05:00
+      maintainer: aptalca
+      homepage.description: Torrent Downloads (old interface)
+      homepage.group: Media Downloaders
+      homepage.href: http://x.x.x.x:9091/
+      homepage.icon: transmission.png
+      homepage.name: Transmission
     logging:
-      driver: "json-file"
+      driver: json-file
       options: {}
-    mac_address: "02:42:ac:11:00:05"
+    mac_address: 02:42:ac:11:00:05
     networks:
-      - "seedbox_default"
+      - seedbox_default
     ports:
-      - "51413:51413/tcp"
-      - "9091:9091/tcp"
-    restart: "always"
+      - 51413:51413/tcp
+      - 9091:9091/tcp
+    restart: unless-stopped
     volumes:
-      - "transmission-watch:/watch"
-      - "transmission-config:/config"
-      - "/downloads:/downloads"
-    working_dir: "/"
+      - transmission-watch:/watch
+      - transmission-config:/config
+      - /downloads:/downloads
+    working_dir: /
   Homepage:
     cap_drop:
-      - "AUDIT_CONTROL"
-      - "BLOCK_SUSPEND"
-      - "DAC_READ_SEARCH"
-      - "IPC_LOCK"
-      - "IPC_OWNER"
-      - "LEASE"
-      - "LINUX_IMMUTABLE"
-      - "MAC_ADMIN"
-      - "MAC_OVERRIDE"
-      - "NET_ADMIN"
-      - "NET_BROADCAST"
-      - "SYSLOG"
-      - "SYS_ADMIN"
-      - "SYS_BOOT"
-      - "SYS_MODULE"
-      - "SYS_NICE"
-      - "SYS_PACCT"
-      - "SYS_PTRACE"
-      - "SYS_RAWIO"
-      - "SYS_RESOURCE"
-      - "SYS_TIME"
-      - "SYS_TTY_CONFIG"
-      - "WAKE_ALARM"
+      - AUDIT_CONTROL
+      - BLOCK_SUSPEND
+      - DAC_READ_SEARCH
+      - IPC_LOCK
+      - IPC_OWNER
+      - LEASE
+      - LINUX_IMMUTABLE
+      - MAC_ADMIN
+      - MAC_OVERRIDE
+      - NET_ADMIN
+      - NET_BROADCAST
+      - SYSLOG
+      - SYS_ADMIN
+      - SYS_BOOT
+      - SYS_MODULE
+      - SYS_NICE
+      - SYS_PACCT
+      - SYS_PTRACE
+      - SYS_RAWIO
+      - SYS_RESOURCE
+      - SYS_TIME
+      - SYS_TTY_CONFIG
+      - WAKE_ALARM
     command:
-      - "node"
-      - "server.js"
-    container_name: "Homepage"
+      - node
+      - server.js
+    container_name: Homepage
     entrypoint:
-      - "docker-entrypoint.sh"
+      - docker-entrypoint.sh
     environment:
-      - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-      - "NODE_VERSION=18.13.0"
-      - "YARN_VERSION=1.22.19"
-      - "NODE_ENV=production"
-      - "PORT=3000"
-    hostname: "homepage"
-    image: "ghcr.io/benphelps/homepage:latest"
-    ipc: "private"
+      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      - NODE_VERSION=18.13.0
+      - YARN_VERSION=1.22.19
+      - NODE_ENV=production
+      - PORT=3000
+    hostname: homepage
+    image: ghcr.io/benphelps/homepage:latest
+    ipc: private
     labels:
-      com.docker.compose.config-hash: "2a43faa20f8c90cba5634f5cf880597fdbe2b4f27b315c4536bd5687ba4beb1d"
-      com.docker.compose.container-number: "1"
-      com.docker.compose.depends_on: ""
-      com.docker.compose.image: "sha256:1acb6a99420ebc7dc17457984d0e8758fa2bfab2ff2bc88bc7a663d61cbae43d"
-      com.docker.compose.oneoff: "False"
-      com.docker.compose.project: "homepage"
-      com.docker.compose.project.config_files: "/data/compose/5/docker-compose.yml"
-      com.docker.compose.project.working_dir: "/data/compose/5"
-      com.docker.compose.service: "homepage"
-      com.docker.compose.version: "2.10.2"
+      com.docker.compose.config-hash: 2a43faa20f8c90cba5634f5cf880597fdbe2b4f27b315c4536bd5687ba4beb1d
+      com.docker.compose.container-number: 1
+      com.docker.compose.depends_on:
+      com.docker.compose.image: sha256:1acb6a99420ebc7dc17457984d0e8758fa2bfab2ff2bc88bc7a663d61cbae43d
+      com.docker.compose.oneoff: False
+      com.docker.compose.project: homepage
+      com.docker.compose.project.config_files: /data/compose/5/docker-compose.yml
+      com.docker.compose.project.working_dir: /data/compose/5
+      com.docker.compose.service: homepage
+      com.docker.compose.version: 2.10.2
     logging:
-      driver: "json-file"
+      driver: json-file
       options: {}
     networks:
-      - "seedbox_default"
+      - seedbox_default
     ports:
-      - "4321:3000/tcp"
+      - 4321:3000/tcp
     volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
-      - "/opt/homepage:/app/config"
-    working_dir: "/app"
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /opt/homepage:/app/config
+    working_dir: /app
 networks:
   seedbox_default:
-    name: "seedbox_default"
+    name: seedbox_default
 volumes:
   portainer_data:
   radarr:
